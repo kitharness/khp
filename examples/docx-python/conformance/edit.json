@@ -1,0 +1,6 @@
+{
+  "steps": [
+    {"command":"paragraph.set-text","params":{"paragraph":1,"text":"Edited through KHP."}},
+    {"command":"paragraph.add","params":{"text":"A second body paragraph."}}
+  ]
+}

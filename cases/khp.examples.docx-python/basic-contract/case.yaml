@@ -1,0 +1,24 @@
+format: 1
+id: khp.examples.docx-python/basic-contract
+feature: khp.examples.docx-python
+intent: >-
+  An independent library wrapper must save small DOCX edits, preserve disk and
+  session state on failure, refuse workspace escapes uniformly, and expose the
+  documented MCP schemas and manifest without reading linked or runtime data.
+layer: golden
+direction: function
+source:
+  kind: synthetic
+  from: examples/docx-python/test_example.py
+  licence: Apache-2.0
+input: []
+steps:
+  - exec:
+      cmd: [python3, -B, examples/docx-python/test_example.py]
+expected:
+  - actual: out:exit
+    compare: exit
+    value: 0
+tags: [headless, security, posix]
+since: "2026-11-12"
+timeout_s: 60

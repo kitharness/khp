@@ -1,0 +1,46 @@
+format: 1
+kit: khp
+updated: "2026-11-14"
+golden_budget_s: 600
+features:
+  - id: khp.conformance.harness
+    title: Agent harness conformance with instrumented kit servers
+    direction: [function, robustness, security]
+    priority: P1
+    status: partial
+    paths:
+      - tools/conformance/src/cli.ts
+      - tools/conformance/src/harness*.ts
+      - tools/conformance/test/*harness*.ts
+      - tools/conformance/test/cli.test.ts
+      - spec/conformance.md
+    gap: Real-model reasoning, native tool semantics, UI and unrelated child runtime privacy are not checked.
+    cases:
+      - khp.conformance.harness/scripted-contract
+      - regressions/issue-1
+    since: "2026-11-12"
+  - id: khp.conformance.kit
+    title: Kit conformance and workspace containment
+    direction: [function, robustness, security]
+    priority: P1
+    status: partial
+    paths:
+      - tools/conformance/src/check.ts
+      - tools/conformance/src/containment.ts
+      - tools/conformance/test/check.test.ts
+      - tools/conformance/test/containment.test.ts
+    gap: Complete-tier A44 and the duties marked not checked in the specification lack automated checks.
+    cases:
+      - regressions/issue-2
+    since: "2026-11-14"
+  - id: khp.examples.docx-python
+    title: Third-party basic DOCX kit using python-docx
+    direction: [function, conversion, security]
+    priority: P1
+    status: partial
+    paths:
+      - examples/docx-python/**
+    gap: POSIX-only basic example; editing is limited to body paragraphs and simple tables, and advanced DOCX fidelity is not established.
+    cases:
+      - khp.examples.docx-python/basic-contract
+    since: "2026-11-12"

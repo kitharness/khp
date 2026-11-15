@@ -1,0 +1,23 @@
+format: 1
+id: regressions/issue-2
+feature: khp.conformance.kit
+intent: >-
+  Planting checker fixtures must not claim a running kit's private runtime files
+  or erase evidence of outside writes or changes to checker-owned files.
+layer: golden
+direction: security
+source:
+  kind: synthetic
+  from: tools/conformance/test/containment.test.ts
+  licence: Apache-2.0
+input: []
+steps:
+  - exec:
+      cmd: [node, --test, tools/conformance/test/containment.test.ts]
+expected:
+  - actual: out:exit
+    compare: exit
+    value: 0
+tags: [headless, security, deterministic]
+since: "2026-11-14"
+timeout_s: 60

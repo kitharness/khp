@@ -1,0 +1,29 @@
+{
+  "khp": "1.0",
+  "id": "org.example.docx-python",
+  "name": "DOCX Python example",
+  "version": "0.1.0",
+  "formats": [
+    {
+      "id": "docx",
+      "extensions": ["docx"],
+      "mime": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      "role": "edit"
+    }
+  ],
+  "creates": [{ "id": "document", "extension": "docx", "baseName": "Untitled document" }],
+  "exports": [
+    {
+      "extension": "docx",
+      "mime": "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+    }
+  ],
+  "agent": {
+    "prefix": "docx",
+    "drafts": false,
+    "objectModel": false,
+    "layout": true,
+    "links": true
+  },
+  "level": "basic"
+}

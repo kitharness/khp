@@ -1,0 +1,23 @@
+format: 1
+id: regressions/issue-1
+feature: khp.conformance.harness
+intent: >-
+  The CLI must execute through installed-package symlinks and paths with spaces,
+  return usage errors, and emit the requested scripted harness report.
+layer: golden
+direction: function
+source:
+  kind: synthetic
+  from: tools/conformance/test/cli.test.ts
+  licence: Apache-2.0
+input: []
+steps:
+  - exec:
+      cmd: [node, --test, tools/conformance/test/cli.test.ts]
+expected:
+  - actual: out:exit
+    compare: exit
+    value: 0
+tags: [headless, packaging]
+since: "2026-11-14"
+timeout_s: 60

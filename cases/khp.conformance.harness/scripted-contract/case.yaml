@@ -1,0 +1,24 @@
+format: 1
+id: khp.conformance.harness/scripted-contract
+feature: khp.conformance.harness
+intent: >-
+  Harness conformance must distinguish observable mount and scripted behavior
+  from unchecked duties, accept deterministic conforming behavior, and reject
+  runtime sharing, model merge exposure, lost logs, automatic fixes and broken recovery.
+layer: golden
+direction: function
+source:
+  kind: synthetic
+  from: tools/conformance/test/harness.test.ts
+  licence: Apache-2.0
+input: []
+steps:
+  - exec:
+      cmd: [node, --test, tools/conformance/test/harness.test.ts]
+expected:
+  - actual: out:exit
+    compare: exit
+    value: 0
+tags: [headless, security, deterministic]
+since: "2026-11-12"
+timeout_s: 60

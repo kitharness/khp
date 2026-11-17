@@ -26,12 +26,12 @@ type LinksDeclared = 'true' | 'false' | 'absent'
  * layout kit (`layout`, see the fixture's LAYOUTS) also `overflow.counter`. `declared` is what its
  * manifest says of `agent.links`, and `basicLinks` makes `basic.counter` link another counter.
  */
-function counterPackage(claim?: Level, layout?: string, links = true, declared: LinksDeclared = 'true', basicLinks = false): string {
+function counterPackage(claim?: Level, layout?: string, links = true, declared: LinksDeclared = 'true', basicLinks = false, khp?: string): string {
   const root = fs.mkdtempSync(path.join(os.tmpdir(), 'khp-counter-'))
   const agent: Record<string, unknown> = { ...MANIFEST.agent, layout: layout !== undefined }
   delete agent.links
   if (declared !== 'absent') agent.links = declared === 'true'
-  const manifest = { ...MANIFEST, ...(claim ? { level: claim } : {}), agent }
+  const manifest = { ...MANIFEST, ...(claim ? { level: claim } : {}), ...(khp ? { khp } : {}), agent }
   fs.writeFileSync(path.join(root, 'kit.json'), JSON.stringify(manifest, null, 2))
   fs.mkdirSync(path.join(root, 'agent'))
   fs.writeFileSync(path.join(root, 'agent', 'checks.json'), JSON.stringify(catalogue(layout)))
@@ -75,6 +75,8 @@ interface CheckCase {
   declared?: LinksDeclared
   /** `basic.counter` links another counter in the workspace. */
   basicLinks?: boolean
+  /** What the package's kit.json says in `khp` (K2; default the fixture's). */
+  khp?: string
 }
 
 /**
@@ -86,7 +88,7 @@ interface CheckCase {
  * folder, which the kit is told as KHP_TEST_ROOT: it touches nothing outside it.
  */
 async function check(options: CheckCase = {}): Promise<{ report: Report; exit: number }> {
-  const pkg = counterPackage(options.claim, options.layout, options.links ?? true, options.declared ?? 'true', options.basicLinks ?? false)
+  const pkg = counterPackage(options.claim, options.layout, options.links ?? true, options.declared ?? 'true', options.basicLinks ?? false, options.khp)
   // Under /tmp where there is one, as khp check's own default, so a socket path in the kit's TMPDIR stays short.
   const base = process.platform !== 'win32' && fs.existsSync('/tmp') ? '/tmp' : os.tmpdir()
   const testRoot = fs.realpathSync(fs.mkdtempSync(path.join(base, 'khp-test-')))
@@ -182,6 +184,16 @@ describe('khp check catches each broken phase', () => {
     const { report, exit } = await check({ broken: 'start' })
     assert.equal(exit, 2)
     assert.equal(report.passed, false)
+  })
+})
+
+describe('the manifest names the kit-layer version (K2)', () => {
+  test('a kit whose khp names KHP 1.1, the protocol version, rather than kit layer 1.0 fails the manifest phase', async () => {
+    const { report, exit } = await check({ level: 'basic', khp: '1.1' })
+    assert.equal(exit, 1, format(report))
+    assert.equal(report.khp, '1.0', 'the report names the kit layer it tested')
+    const failures = report.phases.find((phase) => phase.name === 'manifest')?.failures.join('\n') ?? ''
+    assert.match(failures, /khp is 1\.1; it names the kit-layer version the kit conforms to, and this tool checks kit layer 1\.0 \(K2\)/, format(report))
   })
 })
 

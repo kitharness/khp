@@ -30,7 +30,7 @@ described in RFC 2119.
 
 | Field | Meaning |
 | --- | --- |
-| `khp` | The KHP version the kit follows (K2) |
+| `khp` | The kit-layer version the kit follows (K2) |
 | `id` | The kit's identifier (K1) |
 | `name`, `version` | A name for people, and the kit's own version (semver) |
 | `formats` | The files the kit opens: `{ id, extensions, mime?, role }`, `role` `edit` (opens and saves in place, K4) or `view` (opens read-only) |
@@ -48,8 +48,11 @@ Requirements:
 - **K1** `id` MUST be a reverse-domain-style identifier unique to the kit
   (`kit.<name>` is reserved for kits published by the protocol's maintainer;
   others use their own domain, `com.acme.gantt`).
-- **K2** `khp` MUST name the KHP version the kit conforms to, as
-  `major.minor`: the version stated at the top of the [index](index.md).
+- **K2** `khp` MUST name the kit-layer version the kit conforms to, as
+  `major.minor`: the version of KHP's requirements on kits, stated at the
+  top of the [index](index.md) beside the KHP version. It changes only when
+  a KHP version adds or changes a requirement on kits, so it can be lower
+  than the KHP version: KHP 1.1 has kit-layer version 1.0.
 - **K4** Every extension in `formats` with role `edit` is a file the kit
   owns: it opens it and saves it in place.
 - **K5** Every extension in `exports` is a file the kit writes as a new file

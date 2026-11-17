@@ -230,7 +230,7 @@ data, native tool semantics, unsupported moves/renames (A43), person-facing UI,
 and privacy from unrelated child processes remain unverified. POSIX
 adapter process groups are cleaned up; detached descendants and Windows
 descendant cleanup are not attested. Existing kit-mode checks report
-KHP 1.0 and remain unchanged.
+kit layer 1.0, the version kits name in `khp` (K2), and remain unchanged.
 
 ## Tests
 

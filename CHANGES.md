@@ -13,6 +13,14 @@
 - Report unobservable duties as **not checked**. Scripted replay does not
   establish model reasoning, native tool semantics, approval UI behavior,
   or runtime privacy from unrelated child processes.
+- K2 names the kit-layer version: a kit's `khp` is the version of KHP's
+  requirements on kits that it conforms to, which [spec/index.md](spec/index.md)
+  states beside the KHP version. KHP 1.1 adds no requirement on kits, so its
+  kit-layer version is 1.0, kits keep `"khp": "1.0"`, and `khp check` checks
+  kit layer 1.0. K2's former wording, "the version stated at the top of the
+  index", meant 1.0 in KHP 1.0 but would have meant 1.1 in this edition,
+  which `khp check` refuses and no kit declares; the new wording keeps K2's
+  KHP 1.0 meaning.
 
 ## KHP 1.0 (initial protocol)
 

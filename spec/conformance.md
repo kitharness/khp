@@ -328,8 +328,8 @@ a deterministic replay establishes full harness conformance.
 
 ## Conformance report
 
-A conformance report states the KHP version, the kit's `id` and `version`,
-the tier tested and passed, the conformance tool's version, the platform,
+A conformance report states the kit-layer version it tested (K2), the
+kit's `id` and `version`, the tier tested and passed, the conformance tool's version, the platform,
 whether it ran sandboxed, and the result of every phase:
 
 ```json

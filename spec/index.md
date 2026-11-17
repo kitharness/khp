@@ -3,6 +3,7 @@
 | | |
 | --- | --- |
 | Version | KHP 1.1, edition 2026.11, draft |
+| Kit layer | 1.0: the version a kit names in its manifest's `khp` (K2) |
 | Status | Open-source protocol draft |
 | Home | [github.com/kitharness/khp](https://github.com/kitharness/khp); npm `@kitharness/*`; [kitharness.org](https://kitharness.org) |
 | Maintainer | Kition (kition.ai). The protocol is meant to move to a neutral foundation later |
@@ -68,12 +69,17 @@ is built inside (its engine, data model, editor, or storage) is its own.
 - KHP is versioned `major.minor`. A minor version only adds members (a
   tool, an optional argument, an error code, a diagnostic field); a change
   that removes or changes a member bumps the major version.
-- An **edition** is a dated release of the text. The version and edition
-  of this text are stated once, in the table at the top of this page; rule
-  ids are kept and never reused.
-- A kit names the version it follows in its manifest's `khp` and the tier it
-  claims in `level` ([manifest](manifest.md)). Agents rely on those, never on
-  a kit's product version.
+- An **edition** is a dated release of the text. The version, kit-layer
+  version, and edition of this text are stated once, in the table at the
+  top of this page; rule ids are kept and never reused.
+- The **kit-layer version** is the version of KHP's requirements on kits:
+  the rules a kit keeps, the manifest, the tiers, and the kit checks of
+  `khp check`. It is the KHP version that last added or changed one of
+  them, so it can be lower than the KHP version: KHP 1.1 adds only harness
+  conformance, so its kit-layer version is 1.0.
+- A kit names the kit-layer version it follows in its manifest's `khp` (K2)
+  and the tier it claims in `level` ([manifest](manifest.md)). Agents rely
+  on those, never on a kit's product version.
 
 ## 4. One example
 

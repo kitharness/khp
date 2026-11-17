@@ -18,7 +18,8 @@ import { readIndependently } from './readers.ts'
 import { a18Problems, commandParameters, isFreeString, minimalValue, parameterProblems, parametersOf, validateJson, type Parameter } from './schema.ts'
 import { KitSession, splitCommand, type CallResult } from './session.ts'
 
-export const KHP_VERSION = '1.0'
+/** The kit-layer version this tool checks, what a kit's manifest names in `khp` (K2): KHP 1.1 adds no requirement on kits, so it is 1.0. */
+export const KIT_LAYER_VERSION = '1.0'
 export const TOOL = { name: 'khp', version: '0.1.0' }
 export const LEVELS = ['basic', 'agent-ready', 'agent-ready-complete'] as const
 export type Level = (typeof LEVELS)[number]
@@ -505,7 +506,7 @@ const EXTENSION = /^[a-z0-9][a-z0-9.+-]*$/
 function manifestProblems(manifest: Json): string[] {
   const problems: string[] = []
   if (typeof manifest.khp !== 'string' || !/^\d+\.\d+$/.test(manifest.khp)) problems.push(`khp is ${stable(manifest.khp)}, not major.minor (K2)`)
-  else if (manifest.khp !== KHP_VERSION) problems.push(`khp is ${manifest.khp}; this tool checks KHP ${KHP_VERSION} (K2)`)
+  else if (manifest.khp !== KIT_LAYER_VERSION) problems.push(`khp is ${manifest.khp}; it names the kit-layer version the kit conforms to, and this tool checks kit layer ${KIT_LAYER_VERSION} (K2)`)
   if (typeof manifest.id !== 'string' || !KIT_ID.test(manifest.id)) problems.push(`id ${stable(manifest.id)} is not a reverse-domain identifier (K1)`)
   if (typeof manifest.name !== 'string' || !manifest.name) problems.push('name is missing')
   if (typeof manifest.version !== 'string' || !SEMVER.test(manifest.version)) problems.push(`version ${stable(manifest.version)} is not semver`)
@@ -1854,7 +1855,7 @@ export function claimOf(manifest: Json | undefined, level: Level, passed: boolea
 
 function report(options: CheckOptions, manifest: Json | undefined, level: Level, phases: PhaseResult[], passed: boolean, denyNetwork: boolean): Report {
   return {
-    khp: KHP_VERSION,
+    khp: KIT_LAYER_VERSION,
     kit: { id: typeof manifest?.id === 'string' ? manifest.id : null, version: typeof manifest?.version === 'string' ? manifest.version : null },
     level,
     passed,

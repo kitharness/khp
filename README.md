@@ -1,5 +1,9 @@
 # Kit Harness Protocol (KHP)
 
+Kit Harness Protocol: the spec and its conformance checker.
+
+[kitharness.org](https://kitharness.org)
+
 KHP defines how an AI agent uses a **kit**: an MCP server that exposes
 tools for inspecting, editing, checking, and exporting real files. A kit
 can wrap an existing file library or a document engine. It needs no
@@ -64,7 +68,7 @@ archive locally, run `pnpm --dir tools/conformance pack --pack-destination /tmp/
 packing rebuilds the compiled output and does not publish it.
 
 The feature catalogue is [features.yaml](features.yaml); the golden cases
-are under [cases/](cases/). [QUALITY.md](QUALITY.md) lists their commands,
+are under [cases/](cases/). [docs/quality.md](docs/quality.md) lists their commands,
 the required local-path scan, and the rules for expected results.
 
 ## Python DOCX Example
@@ -79,8 +83,8 @@ covers dependency installation, synthetic fixture generation, tests, and
 running the conformance checker. It supplies no renderer or layout engine
 and makes no higher-tier or complex DOCX fidelity claim.
 
-## Licence
+## License
 
 The specification, tool, and example are licensed under Apache-2.0; see
 [LICENSE](LICENSE). Dependencies are installed separately and retain their
-upstream licences.
+upstream licenses.

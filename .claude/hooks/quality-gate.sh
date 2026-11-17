@@ -43,7 +43,7 @@ fi
   echo "[quality-gate] ---- log tail (last 80 lines) ----"
   tail -n 80 "$LOG_FILE" || true
   echo "[quality-gate] ---- end log tail ----"
-  echo "[quality-gate] Fix the failure and retry. Never edit expected results or weaken tests to pass (QUALITY.md)."
+  echo "[quality-gate] Fix the failure and retry. Never edit expected results or weaken tests to pass (docs/quality.md)."
 } >&2
 
 exit 2

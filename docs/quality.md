@@ -18,7 +18,7 @@ pnpm --dir tools/conformance test
 
 The Python example requires Python 3.11 or later and the dependencies in
 `examples/docx-python/requirements.txt`. See its
-[setup and conformance instructions](examples/docx-python/README.md).
+[setup and conformance instructions](../examples/docx-python/README.md).
 
 The golden cases can be executed directly from the repository root:
 

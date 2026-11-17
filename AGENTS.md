@@ -2,8 +2,8 @@
 
 ## Quality rules (read first)
 
-- Tests are the spec. Read `QUALITY.md` and the feature catalogue (`features.yaml`) before
-  changing behaviour. When code and a case disagree, the case wins unless the owner approves
+- Tests are the spec. Read `docs/quality.md` and the feature catalogue (`features.yaml`)
+  before changing behaviour. When code and a case disagree, the case wins unless the owner approves
   changing the case.
 - Before you finish any task, run `! grep -rIlE '/(Users|home)/[a-z]' --exclude-dir=.git --exclude-dir=node_modules --exclude-dir=dist .`. If it fails, the task is not done. Claude Code
   runs it for you through the Stop hook; agents without hooks (Codex) run it by hand and

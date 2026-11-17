@@ -4,12 +4,12 @@ feature: khp.conformance.kit
 intent: >-
   Planting checker fixtures must not claim a running kit's private runtime files
   or erase evidence of outside writes or changes to checker-owned files.
-layer: golden
-direction: security
+layer: gate
+dimension: security
 source:
   kind: synthetic
   from: tools/conformance/test/containment.test.ts
-  licence: Apache-2.0
+  license: Apache-2.0
 input: []
 steps:
   - exec:

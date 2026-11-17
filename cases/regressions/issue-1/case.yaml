@@ -4,12 +4,12 @@ feature: khp.conformance.harness
 intent: >-
   The CLI must execute through installed-package symlinks and paths with spaces,
   return usage errors, and emit the requested scripted harness report.
-layer: golden
-direction: function
+layer: gate
+dimension: function
 source:
   kind: synthetic
   from: tools/conformance/test/cli.test.ts
-  licence: Apache-2.0
+  license: Apache-2.0
 input: []
 steps:
   - exec:

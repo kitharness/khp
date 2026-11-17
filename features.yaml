@@ -1,11 +1,11 @@
 format: 1
 kit: khp
 updated: "2026-11-14"
-golden_budget_s: 600
+gate_budget_s: 600
 features:
   - id: khp.conformance.harness
     title: Agent harness conformance with instrumented kit servers
-    direction: [function, robustness, security]
+    dimension: [function, robustness, security]
     priority: P1
     status: partial
     paths:
@@ -21,7 +21,7 @@ features:
     since: "2026-11-12"
   - id: khp.conformance.kit
     title: Kit conformance and workspace containment
-    direction: [function, robustness, security]
+    dimension: [function, robustness, security]
     priority: P1
     status: partial
     paths:
@@ -35,7 +35,7 @@ features:
     since: "2026-11-14"
   - id: khp.examples.docx-python
     title: Third-party basic DOCX kit using python-docx
-    direction: [function, conversion, security]
+    dimension: [function, conversion, security]
     priority: P1
     status: partial
     paths:

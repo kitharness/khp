@@ -67,7 +67,7 @@ as `node tools/conformance/dist/cli.js check ...`. To inspect the npm
 archive locally, run `pnpm --dir tools/conformance pack --pack-destination /tmp/khp-pack`;
 packing rebuilds the compiled output and does not publish it.
 
-The feature catalogue is [features.yaml](features.yaml); the golden cases
+The feature catalogue is [features.yaml](features.yaml); the gate cases
 are under [cases/](cases/). [docs/quality.md](docs/quality.md) lists their commands,
 the required local-path scan, and the rules for expected results.
 

@@ -1,4 +1,4 @@
-"""Golden contract checks. The owner runs these after installing requirements.txt."""
+"""Gate contract checks. A maintainer runs these after installing requirements.txt."""
 
 import sys
 

@@ -5,12 +5,12 @@ intent: >-
   An independent library wrapper must save small DOCX edits, preserve disk and
   session state on failure, refuse workspace escapes uniformly, and expose the
   documented MCP schemas and manifest without reading linked or runtime data.
-layer: golden
-direction: function
+layer: gate
+dimension: function
 source:
   kind: synthetic
   from: examples/docx-python/test_example.py
-  licence: Apache-2.0
+  license: Apache-2.0
 input: []
 steps:
   - exec:

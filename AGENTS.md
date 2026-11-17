@@ -3,7 +3,7 @@
 ## Quality rules (read first)
 
 - Tests are the spec. Read `docs/quality.md` and the feature catalogue (`features.yaml`)
-  before changing behaviour. When code and a case disagree, the case wins unless the owner approves
+  before changing behaviour. When code and a case disagree, the case wins unless a maintainer approves
   changing the case.
 - Before you finish any task, run `! grep -rIlE '/(Users|home)/[a-z]' --exclude-dir=.git --exclude-dir=node_modules --exclude-dir=dist .`. If it fails, the task is not done. Claude Code
   runs it for you through the Stop hook; agents without hooks (Codex) run it by hand and
@@ -11,15 +11,15 @@
 - Never edit expected results to make a test pass: files under `cases/**/expected/`, paths
   listed under `protected` in `features.yaml`, and the `expected`, `tolerance`, `reference`,
   `input` and `steps` of an existing `case.yaml`. If you believe an expected result is wrong,
-  stop and explain why in the task's findings; only the owner approves expected-result changes.
+  stop and explain why in the task's findings; only a maintainer approves expected-result changes.
 - Never weaken a test to make it pass: no deleted or loosened assertions, no added
   `#[ignore]`, `.skip`, `.only` or `.todo`, no raised tolerances.
 - Every bug fix starts with a failing case under `cases/regressions/issue-<n>/`, then the fix.
-- Every new feature adds an entry to `features.yaml` and at least one golden case.
+- Every new feature adds an entry to `features.yaml` and at least one gate case.
 - Use plain-English commit messages that describe the change.
 - Stage only your own files: `git add` them by name; never `git commit -a` or `git add -A`.
   Other sessions may have uncommitted work in the same checkout.
-- Only the owner starts real-model `layer: ai` cases. Deterministic conformance
+- Only a maintainer starts real-model `layer: eval` cases. Deterministic conformance
   tests and scripted harness checks call no model.
 - No compatibility layers: no aliases, old names, old file suffixes, migrations, or readers for
   old formats. Delete a replaced path in the same change.

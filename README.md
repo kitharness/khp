@@ -157,7 +157,12 @@ Use it as a template for wrapping your own file library.
 [Kition](https://kition.ai) is the reference implementation: its kits (note, table, doc, sheet,
 slide, PDF and others) are KHP kits, served to any MCP client by its kits MCP server. How Kition
 builds and hosts its kits is documented with the [Kition SDK](https://github.com/KitionAI/kition-sdk),
-not here, and none of it is required of a KHP kit.
+not here, and none of it is required of a KHP kit. To try Kition's kits with your agent:
+
+```sh
+npm install -g @kition/cli        # Node.js 20 or later; gives the kition command
+kition agent add claude           # or codex, cursor: registers Kition's kits MCP server
+```
 
 <img src="assets/readme/kition-agent-mcp.png" alt="Kition, the reference implementation: terminal output of the Kition SDK's agent-mcp example, which creates Notes.md through the Note kit over MCP and runs note_check with 0 diagnostics and 0 errors, followed by the saved Markdown file with an added section and task." width="70%" />
 

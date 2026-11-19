@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 560" width="1280" height="560" role="img" aria-labelledby="hero-title hero-desc">
+  <title id="hero-title">Kit Harness Protocol: the harness for real files</title>
+  <desc id="hero-desc">An agent harness connects over MCP to a kit, an MCP server for one kind of file, which offers inspect, commands, run, check and export tools and works on the documents, spreadsheets, slides and PDFs in a workspace folder.</desc>
+  <defs>
+    <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M32 0 H0 V32" fill="none" stroke="#ffffff" stroke-opacity="0.04" stroke-width="1" />
+    </pattern>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#5eead4" />
+    </marker>
+  </defs>
+  <style>
+    .sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+    .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; }
+    .head { fill: #e7eaf0; font-size: 56px; font-weight: 700; letter-spacing: -1.2px; }
+    .lede { fill: #e7eaf0; font-size: 24px; font-weight: 500; }
+    .sub { fill: #a1aab8; font-size: 17px; }
+    .eyebrow { fill: #5eead4; font-size: 13px; letter-spacing: 1.4px; }
+    .label { fill: #5eead4; font-size: 12px; letter-spacing: 1.3px; }
+    .title { fill: #e7eaf0; font-size: 21px; font-weight: 650; }
+    .muted { fill: #a1aab8; font-size: 14px; }
+    .chip-text { fill: #5eead4; font-size: 13px; }
+    .line { fill: none; stroke: #5eead4; stroke-width: 2; }
+    .file-ext { fill: #1b1f24; font-size: 13px; font-weight: 700; }
+  </style>
+  <rect width="1280" height="560" rx="16" fill="#0a0c10" />
+  <rect width="1280" height="560" rx="16" fill="url(#grid)" />
+  <rect x="0.75" y="0.75" width="1278.5" height="558.5" rx="15.5" fill="none" stroke="#2c3440" stroke-width="1.5" />
+
+  <text class="mono eyebrow" x="64" y="76">OPEN PROTOCOL · KHP 1.1 · EDITION 2026.11 · DRAFT</text>
+  <text class="sans head" x="62" y="140">Kit Harness Protocol</text>
+  <text class="sans lede" x="64" y="186">The harness for real files.</text>
+  <text class="sans sub" x="64" y="222">A kit lets an AI agent see, edit, run, check, and undo a real file. A kit is an MCP server,</text>
+  <text class="sans sub" x="64" y="246">and KHP is the contract it follows, so any MCP-capable agent can use any kit.</text>
+
+  <!-- Agent harness -->
+  <rect x="64" y="300" width="280" height="196" rx="14" fill="#12161c" stroke="#2c3440" stroke-width="1.25" />
+  <text class="mono label" x="88" y="334">AGENT HARNESS</text>
+  <text class="sans title" x="88" y="368">Model, tools, loop</text>
+  <text class="sans muted" x="88" y="398">Claude Code, Codex,</text>
+  <text class="sans muted" x="88" y="420">Kition's agent, or your own</text>
+  <text class="sans muted" x="88" y="460">Any MCP client</text>
+
+  <!-- MCP link -->
+  <path class="line" d="M344 398 L 452 398" marker-end="url(#arrow)" />
+  <rect x="368" y="364" width="60" height="24" rx="6" fill="#0e1116" stroke="#2c3440" />
+  <text class="mono chip-text" x="398" y="381" text-anchor="middle">MCP</text>
+
+  <!-- Kit -->
+  <rect x="456" y="300" width="440" height="196" rx="14" fill="#12161c" stroke="#5eead4" stroke-width="2" />
+  <text class="mono label" x="480" y="334">KIT · AN MCP SERVER FOR ONE KIND OF FILE</text>
+  <text class="sans title" x="480" y="368">Its own engine edits, checks, renders</text>
+  <g class="mono">
+    <rect x="480" y="388" width="104" height="28" rx="7" fill="#0e1116" stroke="#2c3440" /><text class="chip-text" x="532" y="407" text-anchor="middle">_inspect</text>
+    <rect x="592" y="388" width="112" height="28" rx="7" fill="#0e1116" stroke="#2c3440" /><text class="chip-text" x="648" y="407" text-anchor="middle">_commands</text>
+    <rect x="712" y="388" width="72" height="28" rx="7" fill="#0e1116" stroke="#2c3440" /><text class="chip-text" x="748" y="407" text-anchor="middle">_run</text>
+    <rect x="792" y="388" width="80" height="28" rx="7" fill="#0e1116" stroke="#2c3440" /><text class="chip-text" x="832" y="407" text-anchor="middle">_check</text>
+    <rect x="480" y="424" width="96" height="28" rx="7" fill="#0e1116" stroke="#2c3440" /><text class="chip-text" x="528" y="443" text-anchor="middle">_export</text>
+    <rect x="584" y="424" width="136" height="28" rx="7" fill="#0e1116" stroke="#2c3440" /><text class="chip-text" x="652" y="443" text-anchor="middle">_draft_ready</text>
+    <rect x="728" y="424" width="96" height="28" rx="7" fill="#0e1116" stroke="#2c3440" /><text class="chip-text" x="776" y="443" text-anchor="middle">kit.json</text>
+  </g>
+  <text class="sans muted" x="480" y="476">Workspace-contained · atomic runs · structured errors</text>
+
+  <!-- Files -->
+  <path class="line" d="M896 398 L 980 398" marker-end="url(#arrow)" />
+  <rect x="984" y="300" width="232" height="196" rx="14" fill="#12161c" stroke="#2c3440" stroke-width="1.25" />
+  <text class="mono label" x="1008" y="334">WORKSPACE</text>
+  <g class="sans">
+    <path d="M1008 352 h66 l14 14 v52 h-80 z" fill="#ffffff" /><path d="M1074 352 v14 h14" fill="#e2e6eb" />
+    <text class="file-ext" x="1048" y="400" text-anchor="middle">DOCX</text>
+    <path d="M1112 352 h66 l14 14 v52 h-80 z" fill="#ffffff" /><path d="M1178 352 v14 h14" fill="#e2e6eb" />
+    <text class="file-ext" x="1152" y="400" text-anchor="middle">XLSX</text>
+    <path d="M1008 428 h66 l14 14 v42 h-80 z" fill="#ffffff" /><path d="M1074 428 v14 h14" fill="#e2e6eb" />
+    <text class="file-ext" x="1048" y="466" text-anchor="middle">PPTX</text>
+    <path d="M1112 428 h66 l14 14 v42 h-80 z" fill="#ffffff" /><path d="M1178 428 v14 h14" fill="#e2e6eb" />
+    <text class="file-ext" x="1152" y="466" text-anchor="middle">PDF</text>
+  </g>
+</svg>

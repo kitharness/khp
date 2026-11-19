@@ -1,0 +1,104 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 560" width="1280" height="560" role="img" aria-labelledby="loop-title loop-desc">
+  <title id="loop-title">The agent's loop through a kit</title>
+  <desc id="loop-desc">The agent calls inspect to read the document as JSON with absolute addresses and an optional preview, commands to find commands with their schemas, run to apply one to fifty steps all or none, and check to get diagnostics with fix hints; it fixes what check reports and checks again. It can export to a new file. With drafts, it calls draft_ready, and the person compares the draft with the file and merges or discards it; merge and discard are never agent tools.</desc>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#5eead4" />
+    </marker>
+    <marker id="w" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#fbbf24" />
+    </marker>
+  </defs>
+  <style>
+    .sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+    .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; }
+    .h { fill: #e7eaf0; font-size: 26px; font-weight: 700; }
+    .label { fill: #5eead4; font-size: 12px; letter-spacing: 1.3px; }
+    .wlabel { fill: #fbbf24; font-size: 12px; letter-spacing: 1.3px; }
+    .num { fill: #6c7584; font-size: 12px; letter-spacing: 1px; }
+    .tool { fill: #5eead4; font-size: 16px; font-weight: 600; }
+    .wtool { fill: #fbbf24; font-size: 16px; font-weight: 600; }
+    .body { fill: #a1aab8; font-size: 14px; }
+    .note { fill: #e7eaf0; font-size: 14px; }
+    .card { fill: #12161c; stroke: #2c3440; stroke-width: 1.25; }
+    .line { fill: none; stroke: #5eead4; stroke-width: 2; }
+    .wline { fill: none; stroke: #fbbf24; stroke-width: 2; }
+  </style>
+  <rect width="1280" height="560" rx="16" fill="#0a0c10" />
+  <rect x="0.75" y="0.75" width="1278.5" height="558.5" rx="15.5" fill="none" stroke="#2c3440" stroke-width="1.5" />
+
+  <text class="mono label" x="48" y="58">THE LOOP</text>
+  <text class="sans h" x="48" y="94">Observe, act, verify, and leave the decision to a person</text>
+
+  <!-- fix loop arc: from check back to run -->
+  <path class="line" d="M842 168 C 842 128, 586 128, 586 164" marker-end="url(#a)" />
+  <text class="sans note" x="714" y="118" text-anchor="middle">fix what it reports, check again</text>
+
+  <!-- 1 inspect -->
+  <rect class="card" x="48" y="170" width="200" height="150" rx="12" />
+  <text class="mono num" x="68" y="198">01 · OBSERVE</text>
+  <text class="mono tool" x="68" y="226">_inspect</text>
+  <text class="sans body" x="68" y="254">The document as JSON,</text>
+  <text class="sans body" x="68" y="274">with addresses that work</text>
+  <text class="sans body" x="68" y="294">in later calls; a preview</text>
+
+  <path class="line" d="M248 245 L 284 245" marker-end="url(#a)" />
+
+  <!-- 2 commands -->
+  <rect class="card" x="288" y="170" width="200" height="150" rx="12" />
+  <text class="mono num" x="308" y="198">02 · FIND</text>
+  <text class="mono tool" x="308" y="226">_commands</text>
+  <text class="sans body" x="308" y="254">Search the commands;</text>
+  <text class="sans body" x="308" y="274">each has a parameter</text>
+  <text class="sans body" x="308" y="294">schema</text>
+
+  <path class="line" d="M488 245 L 524 245" marker-end="url(#a)" />
+
+  <!-- 3 run -->
+  <rect class="card" x="528" y="170" width="200" height="150" rx="12" style="stroke:#5eead4;stroke-width:2" />
+  <text class="mono num" x="548" y="198">03 · ACT</text>
+  <text class="mono tool" x="548" y="226">_run</text>
+  <text class="sans body" x="548" y="254">1 to 50 steps, applied</text>
+  <text class="sans body" x="548" y="274">all or none; a failed</text>
+  <text class="sans body" x="548" y="294">run changes nothing</text>
+
+  <path class="line" d="M728 245 L 764 245" marker-end="url(#a)" />
+
+  <!-- 4 check -->
+  <rect class="card" x="768" y="170" width="200" height="150" rx="12" style="stroke:#5eead4;stroke-width:2" />
+  <text class="mono num" x="788" y="198">04 · VERIFY</text>
+  <text class="mono tool" x="788" y="226">_check</text>
+  <text class="sans body" x="788" y="254">Diagnostics with stable</text>
+  <text class="sans body" x="788" y="274">codes, targets, and</text>
+  <text class="sans body" x="788" y="294">fix hints</text>
+
+  <path class="line" d="M968 245 L 1004 245" marker-end="url(#a)" />
+
+  <!-- 5 ready -->
+  <rect class="card" x="1008" y="170" width="224" height="150" rx="12" />
+  <text class="mono num" x="1028" y="198">05 · HAND OVER</text>
+  <text class="mono tool" x="1028" y="226">_draft_ready</text>
+  <text class="sans body" x="1028" y="254">With drafts on, ask the</text>
+  <text class="sans body" x="1028" y="274">person to review; or</text>
+  <text class="sans body" x="1028" y="294">_export to a new file</text>
+
+  <!-- person gate -->
+  <path class="wline" d="M1120 320 L 1120 376" marker-end="url(#w)" />
+  <rect class="card" x="768" y="380" width="464" height="132" rx="12" style="stroke:#fbbf24" />
+  <text class="mono wlabel" x="792" y="410">PERSON ONLY</text>
+  <text class="sans note" x="792" y="438">Compares the draft with the file, then</text>
+  <rect x="792" y="456" width="96" height="32" rx="8" fill="#0e1116" stroke="#fbbf24" />
+  <text class="sans wtool" x="840" y="478" text-anchor="middle">Merge</text>
+  <rect x="900" y="456" width="104" height="32" rx="8" fill="#0e1116" stroke="#fbbf24" />
+  <text class="sans wtool" x="952" y="478" text-anchor="middle">Discard</text>
+  <text class="sans body" x="1020" y="470">Never offered to</text>
+  <text class="sans body" x="1020" y="490">the model (A14)</text>
+
+  <!-- notes on the left -->
+  <text class="mono label" x="48" y="410">ON EVERY CALL</text>
+  <text class="sans body" x="48" y="440">· File paths stay inside the workspace</text>
+  <text class="sans body" x="48" y="464">· Errors carry a code and say how to recover</text>
+  <text class="sans body" x="48" y="488">· The harness logs every call and result</text>
+  <text class="sans body" x="400" y="440">· An accepted edit reaches the file</text>
+  <text class="sans body" x="400" y="464">· Checking never changes the document</text>
+</svg>

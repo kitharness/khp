@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 600" width="1280" height="600" role="img" aria-labelledby="tiers-title tiers-desc">
+  <title id="tiers-title">The three tiers of the Kit Harness Protocol</title>
+  <desc id="tiers-desc">Three cumulative tiers, each including the one before. Basic: inspect, commands, run and check, a schema for every agent-facing command, structured errors, atomic runs, and the safety rules; drafts may work in file mode; wrapping an existing file library is enough. Agent-ready: works with no editor open, real previews, a real check with a catalogue of codes, create and export, query and batch when the kit has an object model, and no network. Agent-ready complete: the layout answer for paginated kits, a guide for models, edits that address only what they change, and runs sandboxed. A kit claims its tier in kit.json and khp check tests it.</desc>
+  <style>
+    .sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+    .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; }
+    .h { fill: #e7eaf0; font-size: 26px; font-weight: 700; }
+    .label { fill: #5eead4; font-size: 12px; letter-spacing: 1.3px; }
+    .tier { fill: #e7eaf0; font-size: 22px; font-weight: 700; }
+    .level { fill: #5eead4; font-size: 13px; }
+    .plus { fill: #6c7584; font-size: 13px; }
+    .body { fill: #a1aab8; font-size: 14px; }
+    .note { fill: #a1aab8; font-size: 14px; }
+  </style>
+  <rect width="1280" height="600" rx="16" fill="#0a0c10" />
+  <rect x="0.75" y="0.75" width="1278.5" height="598.5" rx="15.5" fill="none" stroke="#2c3440" stroke-width="1.5" />
+
+  <text class="mono label" x="48" y="58">TIERS</text>
+  <text class="sans h" x="48" y="94">Three tiers, each including the one before</text>
+
+  <!-- Basic -->
+  <rect x="48" y="232" width="380" height="296" rx="12" fill="#12161c" stroke="#2c3440" stroke-width="1.25" />
+  <rect x="48" y="232" width="380" height="6" rx="3" fill="#2dd4bf" fill-opacity="0.45" />
+  <text class="sans tier" x="72" y="276">Basic</text>
+  <text class="mono level" x="72" y="300">"level": "basic"</text>
+  <text class="sans body" x="72" y="336">· _inspect, _commands, _run, _check</text>
+  <text class="sans body" x="72" y="360">· A schema for every agent-facing command</text>
+  <text class="sans body" x="72" y="384">· Structured, actionable errors</text>
+  <text class="sans body" x="72" y="408">· Atomic runs; accepted edits are saved</text>
+  <text class="sans body" x="72" y="432">· Workspace containment and the safety rules</text>
+  <text class="sans body" x="72" y="456">· No object model or real preview needed;</text>
+  <text class="sans body" x="84" y="476">drafts may work in file mode</text>
+  <text class="sans body" x="72" y="508" style="fill:#e7eaf0">Wrapping an existing file library is enough</text>
+
+  <!-- Agent-ready -->
+  <rect x="450" y="176" width="380" height="352" rx="12" fill="#12161c" stroke="#2c3440" stroke-width="1.25" />
+  <rect x="450" y="176" width="380" height="6" rx="3" fill="#2dd4bf" fill-opacity="0.75" />
+  <text class="sans tier" x="474" y="220">Agent-ready</text>
+  <text class="mono level" x="474" y="244">"level": "agent-ready"</text>
+  <text class="mono plus" x="474" y="276">BASIC, PLUS</text>
+  <text class="sans body" x="474" y="308">· Works with no editor open</text>
+  <text class="sans body" x="474" y="332">· Real previews, attached on request</text>
+  <text class="sans body" x="474" y="356">· A real check with a catalogue of its codes</text>
+  <text class="sans body" x="474" y="380">· Create and export</text>
+  <text class="sans body" x="474" y="404">· _query and _batch when the kit has</text>
+  <text class="sans body" x="486" y="424">an object model</text>
+  <text class="sans body" x="474" y="448">· No network</text>
+  <text class="sans body" x="474" y="472">· Notices changes made outside its calls</text>
+
+  <!-- Agent-ready complete -->
+  <rect x="852" y="120" width="380" height="408" rx="12" fill="#12161c" stroke="#5eead4" stroke-width="2" />
+  <rect x="852" y="120" width="380" height="6" rx="3" fill="#5eead4" />
+  <text class="sans tier" x="876" y="164">Agent-ready complete</text>
+  <text class="mono level" x="876" y="188">"level": "agent-ready-complete"</text>
+  <text class="mono plus" x="876" y="220">AGENT-READY, PLUS</text>
+  <text class="sans body" x="876" y="252">· The layout answer for paginated kits</text>
+  <text class="sans body" x="876" y="276">· A guide for models (agent/guide.md)</text>
+  <text class="sans body" x="876" y="300">· Edits that address only what they</text>
+  <text class="sans body" x="888" y="320">change, by id, name, or path</text>
+  <text class="sans body" x="876" y="344">· Runs under a sandbox</text>
+
+  <text class="sans note" x="48" y="568">A kit claims one tier in its manifest; <tspan class="mono" style="fill:#5eead4">khp check</tspan> tests that tier against the kit's MCP server.</text>
+</svg>

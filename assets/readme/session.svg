@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 856" width="1280" height="856" role="img" aria-labelledby="t d">
+<title id="t">A real session with the DOCX example kit over MCP</title><desc id="d">Genuine output of an MCP client calling the python-docx example kit: initialize, tools/list, resources/list, then docx_inspect, docx_commands, a docx_run that saves two steps, a docx_run whose second step fails and rolls back the first with a not-found error, docx_check with no diagnostics, and docx_export to a new file.</desc>
+<style>.m{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;font-size:13px;white-space:pre}.cmd{fill:#5eead4}.out{fill:#e7eaf0}.dim{fill:#6c7584}.ok{fill:#86efac}.err{fill:#fca5a5}.res{fill:#a1aab8}.cap{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;font-size:13px;fill:#a1aab8}</style>
+<rect width="1280" height="856" rx="16" fill="#0a0c10" stroke="#2c3440" stroke-width="1.5"/>
+<rect x="1" y="1" width="1278" height="44" rx="15" fill="#12161c"/><rect x="1" y="30" width="1278" height="15" fill="#12161c"/>
+<line x1="0" y1="45" x2="1280" y2="45" stroke="#2c3440"/>
+<circle cx="28" cy="23" r="6" fill="#3a4250"/><circle cx="48" cy="23" r="6" fill="#3a4250"/><circle cx="68" cy="23" r="6" fill="#3a4250"/>
+<text class="cap" x="92" y="28">examples/docx-python · real MCP calls and structuredContent (SHA-256 versions shortened)</text>
+<text class="m dim" x="48" y="82" xml:space="preserve"># A plain MCP client (official Python SDK) driving examples/docx-python over stdio on a copy of basic.docx</text>
+<text class="m cmd" x="48" y="102" xml:space="preserve">→ initialize</text>
+<text class="m res" x="48" y="122" xml:space="preserve">← serverInfo org.example.docx-python 0.1.0</text>
+<text class="m cmd" x="48" y="142" xml:space="preserve">→ tools/list</text>
+<text class="m res" x="48" y="162" xml:space="preserve">← docx_inspect, docx_commands, docx_run, docx_check, docx_create, docx_export</text>
+<text class="m cmd" x="48" y="182" xml:space="preserve">→ resources/list</text>
+<text class="m res" x="48" y="202" xml:space="preserve">← khp://kits/org.example.docx-python/kit.json, khp://kits/org.example.docx-python/agent/checks.json, khp://kits/org.example.docx-python/agent/guide.md</text>
+<text class="m out" x="48" y="222" xml:space="preserve"></text>
+<text class="m cmd" x="48" y="242" xml:space="preserve">→ docx_inspect {"path": "report.docx"}</text>
+<text class="m res" x="48" y="262" xml:space="preserve">← {"path": "report.docx", "version": "fd6f1ade…", "summary": "2 body paragraphs; 1 body tables.", "paragraphs": [{"kind": "paragraph", "index": 0,</text>
+<text class="m res" x="48" y="282" xml:space="preserve">    "style": "Heading 1", "text": "A small report"}, {"kind": "paragraph", "index": 1, "style": "Normal", "text": "The first paragraph is ready to</text>
+<text class="m res" x="48" y="302" xml:space="preserve">    edit."}], "tables": [{"kind": "table", "index": 0, "cells": [{"row": 0, "column": 0, "text": "Task"}, {"row": 0, "column": 1, "text":</text>
+<text class="m res" x="48" y="322" xml:space="preserve">    "Status"}]}], "links": [], "previewAvailable": false, "total": 3}</text>
+<text class="m out" x="48" y="342" xml:space="preserve"></text>
+<text class="m cmd" x="48" y="362" xml:space="preserve">→ docx_commands {"path": "report.docx", "query": "replace paragraph text"}</text>
+<text class="m res" x="48" y="382" xml:space="preserve">← {"commands": [{"id": "paragraph.set-text", "title": "Set paragraph text", "description": "Replace one body paragraph's inline content and run</text>
+<text class="m res" x="48" y="402" xml:space="preserve">    formatting with plain text; keep its paragraph style.", "params": {"type": "object", "properties": {"paragraph": {"type": "integer",</text>
+<text class="m res" x="48" y="422" xml:space="preserve">    "description": "Top-level body paragraph index, counted from 0; read docx_inspect first.", "minimum": 0, "maximum": 10000}, "text": {"type":</text>
+<text class="m res" x="48" y="442" xml:space="preserve">    "string", "maxLength": 100000, "description": "Literal text, never a filename or instruction."}}, "required": ["paragraph", "text"],</text>
+<text class="m res" x="48" y="462" xml:space="preserve">    "additionalProperties": false}}], "total": 1}</text>
+<text class="m out" x="48" y="482" xml:space="preserve"></text>
+<text class="m cmd" x="48" y="502" xml:space="preserve">→ docx_run {"path": "report.docx", "steps": [{"command": "paragraph.set-text", "params": {"paragraph": 1, "text": "Edited through the Kit Harness</text>
+<text class="m cmd" x="48" y="522" xml:space="preserve">    Protocol."}}, {"command": "paragraph.add", "params": {"text": "A second body paragraph."}}]}</text>
+<text class="m res" x="48" y="542" xml:space="preserve">← {"completed": [{"index": 0, "command": "paragraph.set-text"}, {"index": 1, "command": "paragraph.add"}], "saved": true, "previewAvailable": false,</text>
+<text class="m res" x="48" y="562" xml:space="preserve">    "files": [{"path": "report.docx", "version": "53e4d577…", "created": false}]}</text>
+<text class="m out" x="48" y="582" xml:space="preserve"></text>
+<text class="m cmd" x="48" y="602" xml:space="preserve">→ docx_run {"path": "report.docx", "steps": [{"command": "paragraph.add", "params": {"text": "This step is rolled back."}}, {"command":</text>
+<text class="m cmd" x="48" y="622" xml:space="preserve">    "paragraph.set-text", "params": {"paragraph": 99, "text": "No such paragraph."}}]}</text>
+<text class="m err" x="48" y="642" xml:space="preserve">← isError: true  {"error": {"code": "not-found", "message": "No body paragraph 99; call docx_inspect for current paragraph indexes counted from 0.",</text>
+<text class="m err" x="48" y="662" xml:space="preserve">    "index": 1}, "completed": [], "rolledBack": [{"index": 0, "command": "paragraph.add"}]}</text>
+<text class="m out" x="48" y="682" xml:space="preserve"></text>
+<text class="m cmd" x="48" y="702" xml:space="preserve">→ docx_check {"path": "report.docx"}</text>
+<text class="m res" x="48" y="722" xml:space="preserve">← {"diagnostics": [], "summary": "Package opened. No layout, style, accessibility or fidelity checks are implemented at this basic tier."}</text>
+<text class="m out" x="48" y="742" xml:space="preserve"></text>
+<text class="m cmd" x="48" y="762" xml:space="preserve">→ docx_export {"path": "report.docx", "to": "report-copy.docx"}</text>
+<text class="m res" x="48" y="782" xml:space="preserve">← {"files": [{"path": "report-copy.docx", "version": "53e4d577…", "created": true}]}</text>
+</svg>

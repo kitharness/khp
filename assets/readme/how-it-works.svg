@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 640" width="1280" height="640" role="img" aria-labelledby="hiw-title hiw-desc">
+  <title id="hiw-title">How the Kit Harness Protocol fits together</title>
+  <desc id="hiw-desc">A person starts an agent harness and is the only one who merges or discards drafts. The harness runs the model and connects to a kit over MCP: it calls the kit's tools and reads its kit.json manifest resource, and logs every call and result. The kit is an MCP server started on one workspace folder; its own engine reads and writes the files there, and drafts can sit beside a file. KHP defines the tools, results, rules, manifest, tiers and conformance tests; how a kit is built inside is its own.</desc>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#5eead4" />
+    </marker>
+    <marker id="w" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#fbbf24" />
+    </marker>
+  </defs>
+  <style>
+    .sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+    .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; }
+    .h { fill: #e7eaf0; font-size: 26px; font-weight: 700; }
+    .label { fill: #5eead4; font-size: 12px; letter-spacing: 1.3px; }
+    .wlabel { fill: #fbbf24; font-size: 12px; letter-spacing: 1.3px; }
+    .title { fill: #e7eaf0; font-size: 19px; font-weight: 650; }
+    .body { fill: #a1aab8; font-size: 14px; }
+    .code { fill: #5eead4; font-size: 13px; }
+    .wcode { fill: #fbbf24; font-size: 13px; }
+    .faint { fill: #6c7584; font-size: 13px; }
+    .card { fill: #12161c; stroke: #2c3440; stroke-width: 1.25; }
+    .line { fill: none; stroke: #5eead4; stroke-width: 2; }
+    .wline { fill: none; stroke: #fbbf24; stroke-width: 2; stroke-dasharray: 6 5; }
+    .file-ext { fill: #1b1f24; font-size: 12px; font-weight: 700; }
+  </style>
+  <rect width="1280" height="640" rx="16" fill="#0a0c10" />
+  <rect x="0.75" y="0.75" width="1278.5" height="638.5" rx="15.5" fill="none" stroke="#2c3440" stroke-width="1.5" />
+
+  <text class="mono label" x="48" y="58">HOW IT WORKS</text>
+  <text class="sans h" x="48" y="94">Any MCP-capable agent, any kit, the same contract</text>
+
+  <!-- Person -->
+  <rect class="card" x="48" y="130" width="340" height="104" rx="12" style="stroke:#fbbf24" />
+  <text class="mono wlabel" x="72" y="160">PERSON</text>
+  <text class="sans title" x="72" y="188">Starts the agent</text>
+  <text class="sans body" x="72" y="212">Reviews drafts, then merges or discards them</text>
+
+  <!-- Harness -->
+  <rect class="card" x="48" y="290" width="340" height="230" rx="12" />
+  <text class="mono label" x="72" y="320">AGENT HARNESS · MCP CLIENT</text>
+  <text class="sans title" x="72" y="350">Runs the model and its loop</text>
+  <text class="sans body" x="72" y="380">Claude Code, Codex, Kition's agent,</text>
+  <text class="sans body" x="72" y="400">or anyone's own</text>
+  <text class="sans body" x="72" y="436">· Logs every call and result (A10)</text>
+  <text class="sans body" x="72" y="460">· Treats tool output as data</text>
+  <text class="sans body" x="72" y="484">· Never offers merge or discard</text>
+  <text class="sans body" x="84" y="504">to the model (A14)</text>
+
+  <path class="line" d="M218 234 L 218 286" marker-end="url(#a)" />
+
+  <!-- MCP arrows -->
+  <path class="line" d="M388 360 L 516 360" marker-end="url(#a)" />
+  <text class="mono code" x="452" y="340" text-anchor="middle">tools/call</text>
+  <path class="line" d="M516 420 L 392 420" marker-end="url(#a)" />
+  <text class="mono code" x="452" y="446" text-anchor="middle">results</text>
+  <text class="sans faint" x="452" y="476" text-anchor="middle">JSON, previews,</text>
+  <text class="sans faint" x="452" y="494" text-anchor="middle">diagnostics, errors</text>
+
+  <!-- Kit -->
+  <rect class="card" x="520" y="290" width="400" height="230" rx="12" style="stroke:#5eead4;stroke-width:2" />
+  <text class="mono label" x="544" y="320">KIT · AN MCP SERVER</text>
+  <text class="sans title" x="544" y="350">Started on one workspace folder</text>
+  <text class="sans body" x="544" y="380">Its own engine recalculates, lays out, renders</text>
+  <text class="mono code" x="544" y="418">&lt;prefix&gt;_inspect  _commands  _run</text>
+  <text class="mono code" x="544" y="440">&lt;prefix&gt;_check  _create  _export</text>
+  <text class="sans body" x="544" y="476">Manifest as an MCP resource:</text>
+  <text class="mono code" x="544" y="498">khp://kits/&lt;id&gt;/kit.json</text>
+
+  <!-- Workspace -->
+  <path class="line" d="M920 405 L 1000 405" marker-end="url(#a)" />
+  <rect class="card" x="1004" y="290" width="228" height="230" rx="12" />
+  <text class="mono label" x="1028" y="320">WORKSPACE</text>
+  <path d="M1028 338 h56 l12 12 v46 h-68 z" fill="#ffffff" />
+  <text class="sans file-ext" x="1062" y="378" text-anchor="middle">FILE</text>
+  <path d="M1124 338 h56 l12 12 v46 h-68 z" fill="none" stroke="#fbbf24" stroke-width="1.5" stroke-dasharray="4 3" />
+  <text class="mono wcode" x="1158" y="378" text-anchor="middle">draft</text>
+  <text class="sans body" x="1028" y="428">Paths resolve inside</text>
+  <text class="sans body" x="1028" y="448">the workspace (A29)</text>
+  <text class="sans body" x="1028" y="480">Exports and new files</text>
+  <text class="sans body" x="1028" y="500">never replace a file</text>
+
+  <!-- Person reviews draft -->
+  <path class="wline" d="M388 182 L 1158 182 L 1158 332" marker-end="url(#w)" />
+  <text class="sans body" x="776" y="170" text-anchor="middle" style="fill:#fbbf24">compares the draft with the file, then merges or discards it</text>
+
+  <!-- Footer -->
+  <line x1="48" y1="556" x2="1232" y2="556" stroke="#1e242d" />
+  <text class="sans body" x="48" y="588">KHP defines the tools, their arguments and results, the rules every kit and harness keeps, a minimal manifest, the tiers,</text>
+  <text class="sans body" x="48" y="610">and the conformance tests. How a kit is built inside (its engine, data model, editor, or storage) is its own.</text>
+</svg>

@@ -9,7 +9,7 @@ npx @kitharness/conformance check --kit "<start command> … {workspace} …" --
 ```
 
 The package installs the `khp` command (`npm i -D @kitharness/conformance`, then `npx khp check …`).
-Node 22.18 or later. From a checkout of [the repository](https://github.com/kitharness/khp)
+Node 22.18 or later. From a checkout of [the repository](https://github.com/kitharness/kitharness)
 (`tools/conformance`):
 
 ```sh

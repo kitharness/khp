@@ -4,7 +4,7 @@
   "description": "khp check: tests a kit's MCP server against the Kit Harness Protocol (KHP), tier by tier.",
   "license": "Apache-2.0",
   "homepage": "https://kitharness.org/conformance/",
-  "repository": { "type": "git", "url": "git+https://github.com/kitharness/khp.git", "directory": "tools/conformance" },
+  "repository": { "type": "git", "url": "git+https://github.com/kitharness/kitharness.git", "directory": "tools/conformance" },
   "publishConfig": { "access": "public" },
   "type": "module",
   "bin": { "khp": "./dist/cli.js" },

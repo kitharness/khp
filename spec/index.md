@@ -5,7 +5,7 @@
 | Version | KHP 1.1, edition 2026.11, draft |
 | Kit layer | 1.0: the version a kit names in its manifest's `khp` (K2) |
 | Status | Open-source protocol draft |
-| Home | [github.com/kitharness/khp](https://github.com/kitharness/khp); npm `@kitharness/*`; [kitharness.org](https://kitharness.org) |
+| Home | [github.com/kitharness/kitharness](https://github.com/kitharness/kitharness); npm `@kitharness/*`; [kitharness.org](https://kitharness.org) |
 | Maintainer | Kition (kition.ai). The protocol is meant to move to a neutral foundation later |
 
 The key words MUST, MUST NOT, SHOULD, SHOULD NOT, and MAY are to be read as
@@ -135,4 +135,4 @@ none of it is required of a KHP kit.
 | 2026-10-21 | Manifest field `standard` | Manifest field `khp` (K2), with no alias |
 | 2026-10-22 | `KitAgent 1.4` and the capability sets, protocols, and kit contracts around it | KHP, narrowed to the AI layer; the rest became the Kition kit platform |
 
-The repository's public name is `kitharness/khp`.
+The repository's public name is `kitharness/kitharness`.

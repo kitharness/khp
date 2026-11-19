@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 560" width="1280" height="560" role="img" aria-labelledby="hero-title hero-desc">
   <title id="hero-title">Kit Harness Protocol: the harness for real files</title>
-  <desc id="hero-desc">An agent harness connects over MCP to a kit, an MCP server for one kind of file, which offers inspect, commands, run, check and export tools and works on the documents, spreadsheets, slides and PDFs in a workspace folder.</desc>
+  <desc id="hero-desc">An agent harness connects over MCP to a kit, an MCP server for one kind of file, which offers inspect, commands, run, check and export tools and works on the motion, photo, PDF and slide files in a workspace folder.</desc>
   <defs>
     <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse">
       <path d="M32 0 H0 V32" fill="none" stroke="#ffffff" stroke-opacity="0.04" stroke-width="1" />
@@ -67,12 +67,12 @@
   <text class="mono label" x="1008" y="334">WORKSPACE</text>
   <g class="sans">
     <path d="M1008 352 h66 l14 14 v52 h-80 z" fill="#ffffff" /><path d="M1074 352 v14 h14" fill="#e2e6eb" />
-    <text class="file-ext" x="1048" y="400" text-anchor="middle">DOCX</text>
+    <text class="file-ext" x="1048" y="400" text-anchor="middle">MOTION</text>
     <path d="M1112 352 h66 l14 14 v52 h-80 z" fill="#ffffff" /><path d="M1178 352 v14 h14" fill="#e2e6eb" />
-    <text class="file-ext" x="1152" y="400" text-anchor="middle">XLSX</text>
+    <text class="file-ext" x="1152" y="400" text-anchor="middle">PHOTO</text>
     <path d="M1008 428 h66 l14 14 v42 h-80 z" fill="#ffffff" /><path d="M1074 428 v14 h14" fill="#e2e6eb" />
-    <text class="file-ext" x="1048" y="466" text-anchor="middle">PPTX</text>
+    <text class="file-ext" x="1048" y="466" text-anchor="middle">PDF</text>
     <path d="M1112 428 h66 l14 14 v42 h-80 z" fill="#ffffff" /><path d="M1178 428 v14 h14" fill="#e2e6eb" />
-    <text class="file-ext" x="1152" y="466" text-anchor="middle">PDF</text>
+    <text class="file-ext" x="1152" y="466" text-anchor="middle">SLIDE</text>
   </g>
 </svg>

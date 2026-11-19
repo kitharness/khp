@@ -1,10 +1,10 @@
 <div align="center">
 
-<img src="assets/readme/hero.svg" alt="Kit Harness Protocol, the harness for real files: an agent harness connects over MCP to a kit, an MCP server for one kind of file with inspect, commands, run, check, export and draft tools, which works on the DOCX, XLSX, PPTX and PDF files in a workspace folder." width="100%" />
+<img src="assets/readme/hero.svg" alt="Kit Harness Protocol, the harness for real files: an agent harness connects over MCP to a kit, an MCP server for one kind of file with inspect, commands, run, check, export and draft tools, which works on the motion, photo, PDF and slide files in a workspace folder." width="100%" />
 
 # Kit Harness Protocol
 
-**An open protocol that lets an AI agent work on real files (documents, spreadsheets, slides, PDFs)
+**An open protocol that lets an AI agent work on real files (motion graphics, photos, PDFs, slides)
 the way a coding agent works on code: look, edit, run, check, and hand the result to a person.**
 
 [kitharness.org](https://kitharness.org) · [Specification](spec/index.md) · [Conformance checker](tools/conformance/README.md) · [Example kit](examples/docx-python/README.md) · [Changes](CHANGES.md)
@@ -20,8 +20,8 @@ speaks MCP can use any kit that follows the protocol, with no other adapter.
 ## The problem it solves
 
 A coding agent can do real work because its harness gives the model an environment: it reads the
-code, edits it, runs it, tests it, and rolls back what went wrong. Slides, spreadsheets,
-documents, PDFs, images, video projects and drawings have no such environment. Their formats are
+code, edits it, runs it, tests it, and rolls back what went wrong. Motion graphics, photos,
+PDFs, slides, documents, spreadsheets and drawings have no such environment. Their formats are
 made for storage, their computing and layout are locked inside desktop applications, and nothing
 tells an agent whether its edit was right. Without a shared contract, each integration that lets
 an agent touch such a file defines its own calls, its own results, and its own safety rules.

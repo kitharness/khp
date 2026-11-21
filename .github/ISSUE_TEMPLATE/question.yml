@@ -1,0 +1,18 @@
+name: Question or unclear wording
+description: Ask how the protocol applies, or point out wording that can be read more than one way.
+labels: [question]
+body:
+  - type: input
+    id: where
+    attributes:
+      label: Where
+      description: The page and the requirement id or section (for example spec/agent.md, A29).
+    validations:
+      required: true
+  - type: textarea
+    id: question
+    attributes:
+      label: Your question
+      description: What you read, how you understood it, and what you are trying to build.
+    validations:
+      required: true

@@ -4,20 +4,22 @@ Tests a kit's MCP server against the Kit Harness Protocol, tier by tier, as
 [the conformance specification](https://kitharness.org/spec/conformance/) says. It talks to the kit only over MCP (stdio),
 so it tests a kit whatever it is written in.
 
-```sh
-npx @kitharness/conformance check --kit "<start command> … {workspace} …" --package <folder> [--level basic|agent-ready|agent-ready-complete] [--env NAME=VALUE]... [--no-probes] [--json] [--report report.json]
-```
-
-The package installs the `khp` command (`npm i -D @kitharness/conformance`, then `npx khp check …`).
-Node 22.18 or later. From a checkout of [the repository](https://github.com/kitharness/kitharness)
-(`tools/conformance`):
+Run it from a clone of [the repository](https://github.com/kitharness/kitharness), with Node.js
+22.18 or later and pnpm 10:
 
 ```sh
-pnpm install
-node src/cli.ts check --kit "<start command> … {workspace} …" --package <folder> [--level basic|agent-ready|agent-ready-complete] [--env NAME=VALUE]... [--no-probes] [--json] [--report report.json]
+git clone https://github.com/kitharness/kitharness.git
+cd kitharness
+pnpm --dir tools/conformance install --frozen-lockfile
+pnpm --dir tools/conformance build
+node tools/conformance/dist/cli.js check --kit "<start command> … {workspace} …" --package <folder> [--level basic|agent-ready|agent-ready-complete] [--env NAME=VALUE]... [--no-probes] [--json] [--report report.json]
 ```
 
-`pnpm build` writes `dist/` and the `khp` command (`khp check …`).
+`pnpm build` writes `dist/`; `dist/cli.js` is the `khp` executable of the package. Without the
+build step, `node src/cli.ts check …` from `tools/conformance` runs the same checker from its
+TypeScript source. Once `@kitharness/conformance` is published to npm,
+`npx @kitharness/conformance check …` will be the short form of the same command. Below,
+`khp check` names the checker however you run it.
 
 The tool is licensed under Apache-2.0; see [LICENSE](LICENSE), which is
 identical to the repository's root licence. Dependencies declared in

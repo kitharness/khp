@@ -191,11 +191,12 @@ See [CHANGES.md](CHANGES.md) for version changes and retired requirement ids.
 
 ## Conformance
 
-The checker in [tools/conformance](tools/conformance/README.md) is the package
-`@kitharness/conformance`, which provides the `khp` executable:
+The checker, `khp check`, is in [tools/conformance](tools/conformance/README.md) (package
+`@kitharness/conformance`). Run it from a clone of this repository after the build steps in
+[Build and test](#build-and-test):
 
 ```sh
-khp check --kit "my-kit --workspace {workspace}" --package <kit-package> --level basic
+node tools/conformance/dist/cli.js check --kit "my-kit --workspace {workspace}" --package <kit-package> --level basic
 ```
 
 The kit package supplies `kit.json` and a `conformance/` fixture folder. Keep `{workspace}`
@@ -242,7 +243,7 @@ local-path scan, and the rules for expected results.
 | [CHANGES.md](CHANGES.md) | Version history and retired requirement ids |
 
 The repository's home is [github.com/kitharness/kitharness](https://github.com/kitharness/kitharness).
-Its npm packages use the `@kitharness/*` scope.
+Its packages are named in the `@kitharness/*` scope; none is published to npm yet.
 
 ## License
 

@@ -5,10 +5,11 @@ complete; [agent.md](agent.md) section 10) when the conformance tool passes
 at that tier against its MCP server. The tool talks to the kit only over
 MCP, so it tests any kit, whatever it is written in.
 
-> The conformance tool is the npm package `@kitharness/conformance`, in this
-> repository's `tools/conformance/` (`khp check`), including harness mode.
-> Requirements here are *(proposed)* until it is
-> published.
+> The conformance tool is `khp check`, including harness mode, in this
+> repository's `tools/conformance/` (package `@kitharness/conformance`, not
+> yet published to npm). Run it from a clone of the repository, as the
+> [tool's README](../tools/conformance/README.md)
+> says. Requirements here are *(proposed)* until it is published.
 
 ## `khp check`
 
